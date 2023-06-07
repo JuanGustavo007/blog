@@ -1,4 +1,21 @@
 import express from "express";
+import Cadastrar from "./models/Cadastrar.ts";
+
+async function main() {
+    try {
+        await Cadastrar.sync({ force: false });
+        const newCadastrar = await Cadastrar.create({
+            nome: "João",
+            email: "juan@gmail.com",
+            telefone: "(11) 99999-9999",
+            cpf: "111.111.111-11",
+        });
+        console.log("Novo usuário cadastrado: ", newCadastrar);
+    } catch (error) {
+        console.log(error);
+    }
+}
+main();
 
 const app = express();
 

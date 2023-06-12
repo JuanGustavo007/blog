@@ -6,6 +6,8 @@ class Cadastrar extends Model {
     public email!: string;
     public telefone!: string;
     public cpf!: string;
+    public senha!: string;
+    public confirmar!: string;
 }
 
 Cadastrar.init(
@@ -23,6 +25,14 @@ Cadastrar.init(
             allowNull: false,
         },
         cpf: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        senha: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        confirmar: {
             type: DataTypes.STRING,
             allowNull: false,
         },

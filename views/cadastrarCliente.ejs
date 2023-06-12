@@ -1,29 +1,62 @@
 <%- include("partials/header.ejs") %> <%- include("partials/navbar.ejs") %>
 <div class="container container-cliente mt-5 p-5">
-    <form>
+    <form method="post" action="/cadastrar">
         <div class="row">
             <div class="mb-3 col-6">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" required />
+                <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" required name="nome" />
             </div>
             <div class="mb-3 col-6">
                 <label for="email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required />
+                <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required name="email" />
             </div>
         </div>
         <div class="row">
             <div class="mb-3 col-6">
                 <label for="telefone" class="form-label">Telefone</label>
-                <input type="tel" class="form-control" id="telefone" placeholder="Digite seu telefone" required v-mask="'(##) ####-####'" />
+                <input
+                    type="tel"
+                    class="form-control"
+                    id="telefone"
+                    placeholder="Digite seu telefone"
+                    required
+                    v-mask="'(##) ####-####'"
+                    name="telefone"
+                />
             </div>
             <div class="mb-3 col-6">
                 <label for="cpf_cnpj col-6" class="form-label">CPF/CNPJ</label>
-                <input type="text" class="form-control" id="cpf_cnpj" placeholder="Digite seu CPF ou CNPJ" required />
+                <input type="text" class="form-control" id="cpf_cnpj" placeholder="Digite seu CPF ou CNPJ" required name="cpf" />
+            </div>
+            <div class="mb-3 col-6">
+                <label for="senha col-6" class="form-label">Senha: </label>
+                <input type="password" class="form-control" id="senha" placeholder="Digite a senha para acesso" required name="senha" />
+            </div>
+            <div class="mb-3 col-6">
+                <label for="confirmar col-6" class="form-label">Confirmar: </label>
+                <input type="password" class="form-control" id="confirmar" placeholder="Confirme sua senha" required name="confirmar" />
             </div>
         </div>
         <button type="submit" class="btn btn-enviar">Enviar</button>
     </form>
 </div>
+<script>
+    new Cleave("#cpf_cnpj", {
+        delimiters: [".", ".", "-"],
+        blocks: [3, 3, 3, 2],
+        uppercase: true,
+    });
+    new Cleave("#telefone", {
+        delimiters: ["(", ")", " ", "-"],
+        blocks: [0, 2, 5, 4],
+        uppercase: true,
+        //prone region code
+        phoneRegionCode: "BR",
+
+        //prefix: "+55",
+    });
+</script>
+
 <style>
     label {
         color: black;

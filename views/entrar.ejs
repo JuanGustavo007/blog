@@ -1,0 +1,44 @@
+<%- include('partials/header.ejs') %> <%- include('partials/navbar.ejs') %>
+
+<div class="container mt-5">
+    <form action="/painel" method="post" class="d-flex justify-content-center align-items-center">
+        <div class="row">
+            <div class="mb-3 col-12">
+                <label for="email-entrar" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email-entrar" placeholder="Digite seu Email" required name="loginEmail" />
+            </div>
+            <div class="mb-3 col-12">
+                <label for="senha-entrar" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senha-entrar" placeholder="Digite sua senha" required name="loginSenha" />
+            </div>
+            <div class="mb-3 col-12">
+                <button class="btn btn-success entrar-login">Entrar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<style>
+    .row {
+        background-color: #dde6ed;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border: 2px solid black;
+    }
+    label {
+        color: black;
+    }
+    .container-cliente {
+        background-color: #dde6ed;
+        border: 2px solid black;
+    }
+    input {
+        border: 1px solid black;
+    }
+    .entrar-login {
+        width: 100px;
+    }
+</style>
+<%- include('partials/footer.ejs') %>

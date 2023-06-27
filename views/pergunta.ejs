@@ -1,0 +1,46 @@
+<%- include("partials/header.ejs") %> <%- include("partials/navbar.ejs") %>
+
+<div class="container-fluid p-0 pt-3 pb-3 title-space">
+    <h1 class="text-white text-uppercase text-center painel-title">Painel do usuário: <span class="status-user p-2"> <%= qmperguntou%></span></h1>
+</div>
+
+<div class="container d-flex justify-content-center mt-5">
+    <div class="espaco-pergunta p-3">
+        <form action="/salvarpergunta" method="post" class="form-pergunta">
+            <div class="form-group mb-1">
+                <input type="hidden" name="qmperguntou" value="<%= qmperguntou%>" />
+                <label for="exampleFormControlSelect1">Assunto da pergunta</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="opcao">
+                    <option selected>Selecione...</option>
+                    <option value="Software">Software</option>
+                    <option value="Hardware">Hardware</option>
+                    <option value="Dados">Dados</option>
+                    <option value="Dúvida no meu código...">Dúvida no meu código...</option>
+                    <option value="Jogos">Jogos</option>
+                    <option value="Outros">Outros</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-1 mb-3">
+                <label for="exampleFormControlTextarea1">Pergunta...</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="conteudo"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar pergunta</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    const button = document.querySelector(".btn-primary");
+
+    // button.addEventListener("click", (e) => {
+    //     const selecionarInputs = document.querySelector("#exampleFormControlSelect1");
+    //     const selecionarTextArea = document.querySelector("textarea");
+    //     if (selecionarInputs.value === "" && selecionarTextArea.value === "") {
+    //         e.preventDefault();
+    //         alert("Preencha todos os campos!");
+    //     }
+    // });
+</script>
+
+<%- include("partials/footer.ejs") %>

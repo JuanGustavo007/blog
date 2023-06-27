@@ -1,11 +1,11 @@
 import express from "express";
 import Cadastrar from "./models/Cadastrar.ts";
 import bodyParser from "body-parser";
-import e from "express";
-
+import Perguntar from "./models/Perguntar.ts";
 async function main() {
     try {
         await Cadastrar.sync({ force: false });
+        await Perguntar.sync({ force: false });
     } catch (error) {
         console.log(error);
     }
@@ -35,11 +35,12 @@ app.get("/cadastrar", (req, res) => {
 app.post("/cadastrar", async (req, res) => {
     //Precisa criar a logica de criar somente cadastro unico, verificar no bd se o email ja existe
     const { nome, email, telefone, cpf, senha, confirmar } = req.body;
+
     try {
         if (senha !== confirmar) {
             res.send("Senhas não conferem");
         } else {
-            res.send("Cadastro realizado com sucesso");
+            res.render("cadastroSucess");
             const cadastrar = await Cadastrar.create({
                 nome,
                 email,
@@ -75,6 +76,33 @@ app.post("/painel", async (req, res) => {
         }
     });
 });
+
+app.post("/pergunta", async (req, res) => {
+    const { qmperguntou } = req.body;
+    res.render("pergunta", { qmperguntou: qmperguntou });
+});
+app.get("/perguntaSucess", (req, res) => {
+    res.render("perguntaSucess");
+});
+
+app.post("/salvarpergunta", async (req, res) => {
+    const { opcao, conteudo, qmperguntou } = req.body;
+    try {
+        const perguntar = await Perguntar.create({
+            opcao,
+            conteudo,
+            qmperguntou,
+        });
+
+        res.send("Pergunta enviada com sucesso");
+    } catch (error) {
+        console.log(error);
+    }
+});
+app.get("/painel", async (req, res) => {
+    res.render("painelCliente");
+});
+
 app.listen(3000, () => {
     console.log("Servidor online");
 });

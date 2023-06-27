@@ -1,0 +1,17 @@
+.espaco-pergunta {
+    width: 800px;
+    background-color: #f1f3f4;
+    color: black;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.btn-acao {
+    background-color: #77bff9;
+    border: 2px solid black;
+    color: white;
+}
+.btn-acao:hover {
+    background-color: #77bff9;
+    border: 2px solid black;
+    color: white;
+}

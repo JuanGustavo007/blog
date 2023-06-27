@@ -1,3 +1,5 @@
+@import "./perguntar.css";
+
 nav {
     background-color: #394867;
 }
@@ -66,4 +68,60 @@ footer {
     100% {
         transform: rotateX(360deg);
     }
+}
+
+.status-user {
+    background-color: #333;
+    color: white;
+    border: 2px solid white;
+}
+.painel-title {
+    font-size: 1.5rem;
+}
+.title-space {
+    background-color: #5c8984;
+    border-bottom: 1px solid black;
+}
+.qtd-perguntas {
+    background-color: white;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid black;
+}
+.qtd-respostas {
+    background-color: white;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid black;
+}
+.perguntas {
+    border: 2px solid black;
+}
+.respostas {
+    border: 2px solid white;
+    background-color: #f86f03;
+    border: 2px solid black;
+}
+.ultima-pergunta {
+    background-color: white;
+    border: 2px solid black;
+    font-family: "IM Fell Great Primer SC", serif;
+}
+.texto-perguntas {
+    background-color: #413f42;
+}
+.qtd-area {
+    background-color: #595260;
+    border: 2px solid black;
+
+    padding: 20px;
+    text-transform: uppercase;
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+    letter-spacing: 4px;
+    border: 2px solid black;
 }
